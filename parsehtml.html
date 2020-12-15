@@ -1,0 +1,56 @@
+<html>
+ <head>
+<title>Parse Html</title>
+<meta content='width=device-width, initial-scale=1' name='viewport'/>
+ <style>
+   body{font-family:sans-serif;font-size:16px;line-height:1.6em;}
+  #tarea{max-width:90%;clear:both;outline:none;border:none;padding:7px 9px;}
+ #mainDiv button,#mainDiv span{clear:both;}
+.tombut{margin:10px 0 10px 0;}
+.tombut button{background:black;padding:7px 9px;text-align:center;color:#fff;border:none;outline:none;}
+  .wrap{max-width:1000px;margin:0 auto;overflow:hidden;width:100%;}
+  #mainDiv{padding:20px 10px 20px 10px;max-width:98%;clear:both;background:#efefef}
+  @media screen and (max-width:604px){
+.wrap{width:100%;}
+  }
+</style>
+</head>
+<body>
+<div class='wrap'>
+<div class='left'>
+  <h1>Parse Html</h1>
+  </div>
+  <hr/>
+	<br/>
+<div id="mainDiv">
+<textarea cols="20" id="tarea" onfocus="code_check();" rows="10" style="width:340px;height:280px;"></textarea>
+  <br/>
+	<div class="tombut">
+<button onclick="code_convert();" style="margin-right: 5px;" type="button">
+<span>Parse Kode HTML</span>
+ </button>
+<button onclick="code_clear();" style="margin-left: 5px;" type="button">
+ <span>Clear</span>
+</button>
+</div>
+<script>
+function code_check(){
+var focuscheck=document.getElementById('tarea');if(focuscheck.value.indexOf('Pastekan Disini Kode yang Akan Anda Pasang pada Postingan Blog')>0)focuscheck.value='';}
+function code_clear(){
+var wtarea=document.getElementById('tarea');wtarea.value='';}
+function code_convert(){
+var ctarea=document.getElementById('tarea');var toConvert=ctarea.value;
+var toConvert=toConvert.replace(/&/g,"&amp;");
+var toConvert=toConvert.replace(/'/g,"&#039;");
+var toConvert=toConvert.replace(/"/g,"&quot;");
+var toConvert=toConvert.replace(/</g,"&lt;");
+var toConvert=toConvert.replace(/>/g,"&gt;");
+ctarea.value=toConvert;ctarea.focus();ctarea.select();};
+</script>
+
+</div>
+</div>
+</body>
+</html>
+
+
